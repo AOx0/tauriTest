@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+
+   #bd {
+    position: absolute;
+    border-radius: 10px;
+    background: #ffffff;
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+    height: 100%;
+    z-index: -2;  
+  }
+  
+  #titlebar {
+  height: 40px;
+  border-radius: 25px;
+  background: #ffffff;
+
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: 0;
+  z-index: 0;  
+}
+
+  
+  #closee {
+  	height: 14px;
+  	width: 14px;
+  	position: absolute;
+  	margin: 10px 10px;
+  	background: url("./Close.svg") no-repeat;
+      z-index: 10000;
+  }
+  
+  #closee:hover {
+  	background: url("./CloseHover.svg") no-repeat;
+  }
+
+  </style>
+  <script>
+  	import { appWindow } from '@tauri-apps/api/window';
+  </script>
+  <body>
+  	<div id="titlebar" >
+  		<div id="closee" onclick="appWindow.close();"></div>
+  	</div>
+    <p id="bd"></p>
+    <h1>tauri-app</h1>
+  </body>
+</html>
