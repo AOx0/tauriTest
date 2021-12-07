@@ -31,8 +31,9 @@
         height: 40px;
         border-radius: 25px;
         background: #ffffff;
-
+        user-select: none;
         display: flex;
+
         justify-content: flex-start;
         position: absolute;
         top: 0;
@@ -45,8 +46,7 @@
     .close {
         height: 14px;
         width: 14px;
-        position: absolute;
-        margin: 10px 10px;
+        margin: 10px 0 10px 10px ;
     }
 
     #cls {
@@ -58,17 +58,52 @@
         border: none;
         border-radius: 20px;
     }
+    /*  47dc4e */
+    #min {
+        background: #ffbc3d;
+        text-decoration: none;
+        color: #ffbc3d;
+        height: 14px;
+        width: 14px;
+        border: none;
+        border-radius: 20px;
+    }
 
+    #max {
+        background: #47dc4e;
+        text-decoration: none;
+        color: #47dc4e;
+        height: 14px;
+        width: 14px;
+        border: none;
+        border-radius: 20px;
+    }
 
   </style>
   <body>
-      <div id="title-bar" >
+      <div data-tauri-drag-region id="title-bar" >
           <div class="close" >
               <button id="cls" onclick="
               const invoke = window.__TAURI__.invoke;
               invoke('my_custom_command')">
               </button>
           </div>
+          <div class="close" >
+              <button id="min" onclick="
+                const win = window.__TAURI__.window;
+                win.appWindow.minimize()
+                ">
+              </button>
+          </div>
+
+          <div class="close" >
+              <button id="max" onclick="
+                const win = window.__TAURI__.window;
+                win.appWindow.maximize()
+                ">
+              </button>
+          </div>
+
       </div>
     <p id="bd"></p>
     <h1>tauri-app</h1>
